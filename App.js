@@ -12,6 +12,7 @@ import Splashscreen from './src/screens/SplashScreen';
 import Login from './src/screens/Login';
 import Signup from './src/screens/Signup';
 import { WelcomeScreen} from './src/screens/WelcomeScreen';
+import { BottomTabs } from './src/navigation/BottomTabs';
 
 const Stack = createStackNavigator();
 
@@ -50,12 +51,19 @@ const App = () => {
           component={Auth}
           options={{headerShown: false}}
         />
-        {/* Navigation Drawer as a landing page */}
+        {/* Navigation  for landing page */}
         <Stack.Screen
           name="WelcomeScreen"
           component={WelcomeScreen}
           options={{headerShown: false}}
         />
+        {/* navib=fation for bottom tabs navigation */}
+        <Stack.Screen
+          name="BottomTabs"
+          component={BottomTabs}
+          options={{ headerShown: false }}
+        />
+
         
       </Stack.Navigator>
     </NavigationContainer>

@@ -1,6 +1,6 @@
 import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 
-export default function Seperator() {
+export default function Seperator({navigation}) {
   return (
     <View style={styles.afterLoginBtn}>
       <View style={styles.horLine} />
