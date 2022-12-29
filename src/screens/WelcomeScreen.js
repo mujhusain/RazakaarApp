@@ -16,7 +16,7 @@ export const WelcomeScreen=({navigation})=> {
       <View style={styles.buttonContainer}>
         <ButtonGreen
         onPress={() =>
-            navigation.navigate('SplashScreen', {name: 'Jane'})
+            navigation.navigate('Auth')
           }
           customStyles={{minWidth: '85%'}}
           title="Login"
@@ -44,12 +44,14 @@ const styles = StyleSheet.create({
   topTitle: {
     marginTop: '20%',
     alignItems: 'center',
+    zIndex:2,
+    marginBottom:`-20%`
   },
   heading: {
     fontSize: 28,
     fontWeight: 'bold',
     marginBottom: 10,
-    color: 'balck',
+    color: 'black',
   },
   text: {
     fontSize: 16,
