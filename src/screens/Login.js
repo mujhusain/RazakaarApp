@@ -6,11 +6,14 @@ import {
   TextInput,
   TouchableOpacity,
   Alert,
+  Pressable,
 } from 'react-native';
 import {Formik} from 'formik';
 import * as yup from 'yup';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import {LoginBtn} from '../components/buttons/LoginBtn';
+import CustomInput from '../components/CustomInput';
+import Seperator from '../components/utills/Seperator';
+import { GoogleLoginBtn } from '../components/buttons/GoogleLoginBtn';
 
 const loginValidationSchema = yup.object().shape({
   email: yup
@@ -22,7 +25,7 @@ const loginValidationSchema = yup.object().shape({
     .min(8, ({min}) => `Password must be at least ${min} characters`)
     .required('Password is required'),
 });
-export default function Login() {
+export default function Login({navigation}) {
   return (
     <ScrollView
       contentContainerStyle={{flexGrow: 1}}
@@ -47,43 +50,29 @@ export default function Login() {
               touched,
             }) => (
               <>
-                <View style={styles.inputField}>
-                  <Icon
-                    style={styles.icon}
-                    name="envelope"
-                    size={16}
-                    color="black"
-                  />
-                  <TextInput
-                    name="email"
-                    placeholder="Email Address"
-                    style={styles.textInput}
-                    onChangeText={handleChange('email')}
-                    onBlur={handleBlur('email')}
-                    value={values.email}
-                    keyboardType="email-address"
-                  />
-                </View>
+                <CustomInput
+                  iconName={'envelope'}
+                  name="email"
+                  placeholder="Email Address"
+                  style={styles.textInput}
+                  onChangeText={handleChange('email')}
+                  onBlur={handleBlur('email')}
+                  value={values.email}
+                  keyboardType="email-address"
+                />
                 {errors.email && touched.email && (
                   <Text style={styles.errorText}>{errors.email}</Text>
                 )}
-                <View style={[styles.inputField, {marginTop: '6%'}]}>
-                  <Icon
-                    style={styles.icon}
-                    name="lock"
-                    size={24}
-                    color="black"
-                  />
-                  <TextInput
-                    name="password"
-                    placeholder="Password"
-                    style={styles.textInput}
-                    onChangeText={handleChange('password')}
-                    onBlur={handleBlur('password')}
-                    value={values.password}
-                    secureTextEntry
-                  />
-                </View>
+                <CustomInput
+                  iconName={'lock'}
+                  name="password"
+                  placeholder="Password"
+                  style={styles.textInput}
+                  onChangeText={handleChange('password')}
+                  onBlur={handleBlur('password')}
+                  value={values.password}
+                  secureTextEntry
+                />
                 {errors.password && touched.password && (
                   <Text style={styles.errorText}>{errors.password}</Text>
                 )}
@@ -95,26 +84,24 @@ export default function Login() {
                 </TouchableOpacity>
                 <LoginBtn
                   onPress={handleSubmit}
-                  title="Submit"
-                  customStyles={{width: '100%',marginTop:"5%"}}
+                  title="Login"
+                  customStyles={{width: '100%', marginTop: '3%'}}
                 />
-                <View style={styles.afterLoginBtn}>
-                  <View style={styles.horLine} />
-                  <View style={styles.circle}>
-                    <Text
-                      style={{
-                        color: '#0A8383',
-                        fontSize: 18,
-                        fontWeight: 'bold',
-                      }}>
-                      OR
-                    </Text>
-                  </View>
-                  <View style={styles.horLine} />
-                </View>
+                <Seperator />
+                <GoogleLoginBtn
+                //handle google login here
+                  onPress={()=> Alert.alert('google login')}
+                  customStyles={{width: '100%', marginTop: '3%'}}
+                />
               </>
             )}
           </Formik>
+        </View>
+        <View style={styles.signUpBtnContainer}>
+          <Text style={styles.signUpMessage}>New member?</Text>
+          <TouchableOpacity onPress={() => navigation.navigate('SignupScreen')}>
+            <Text style={styles.btnSignUp}> Sign up</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </ScrollView>
@@ -135,6 +122,7 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     padding: 50,
+    paddingBottom: 20,
   },
   title: {
     fontSize: 25,
@@ -181,25 +169,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     textDecorationLine: 'underline',
   },
-  afterLoginBtn: {
+  signUpBtnContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginVertical: '6%',
-  },
-  horLine: {
-    borderWidth: 1,
-    width: '38%',
-    borderColor: '#0A8383',
-  },
-  circle: {
-    borderWidth: 2,
-    borderColor: 'gray',
-    height: 50,
-    width: 50,
-    borderRadius: 50,
     justifyContent: 'center',
-    alignItems: 'center',
-    borderColor: '#0A8383',
+    marginTop: "6%",
+  },
+  signUpMessage: {
+    fontSize: 16,
+  },
+  btnSignUp: {
+    fontSize: 16,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    color: '#3C9C8F',
   },
 });
