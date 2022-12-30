@@ -10,9 +10,11 @@ import {
 import {Formik} from 'formik';
 import * as yup from 'yup';
 import {LoginBtn} from '../components/buttons/LoginBtn';
+import {handleSignup} from '../logic/auth/signup'
 import CustomInput from '../components/CustomInput';
 import Seperator from '../components/utills/Seperator';
 import { GoogleLoginBtn } from '../components/buttons/GoogleLoginBtn';
+import COLORS from '../constants';
 
 const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
@@ -29,7 +31,7 @@ const loginValidationSchema = yup.object().shape({
     .required('Password is required'),
 
 });
-export default function Signup() {
+export default function Signup({navigation}) {
   return (
     <ScrollView
       contentContainerStyle={{flexGrow: 1}}
@@ -49,7 +51,7 @@ export default function Signup() {
               email: '',
               password: '',
             }}
-            onSubmit={values => console.log(values)}>
+            onSubmit={values => handleSignup(values,navigation)}>
             {({
               handleChange,
               handleBlur,
@@ -60,7 +62,7 @@ export default function Signup() {
             }) => (
               <>
                 <CustomInput
-                  iconName={'user'}
+                  iconName={'user-o'}
                   name="name"
                   placeholder="Create an account here"
                   style={styles.textInput}
@@ -86,7 +88,7 @@ export default function Signup() {
                 )}
 
                 <CustomInput
-                  iconName={'envelope'}
+                  iconName={'envelope-o'}
                   name="email"
                   placeholder="Email Address"
                   style={styles.textInput}
@@ -150,14 +152,14 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 25,
     fontWeight: 'bold',
-    color: 'black',
+    color: COLORS.black,
     marginBottom: 8,
   },
   subTitle: {
     fontSize: 16,
   },
   textInput: {
-    borderColor: 'gray',
+    borderColor: COLORS.gray,
     borderLeftWidth: 1,
     height: 40,
     fontSize: 16,
@@ -168,49 +170,5 @@ const styles = StyleSheet.create({
   errorText: {
     fontSize: 12,
     color: 'red',
-  },
-  inputField: {
-    marginTop: 10,
-    borderColor: 'gray',
-    borderBottomWidth: 1,
-    flexDirection: 'row',
-    borderRadius: 10,
-    paddingBottom: 3,
-  },
-  icon: {
-    margin: 8,
-  },
-
-  forgetpass: {
-    margin: '15%',
-  },
-  forgetpassText: {
-    textAlign: 'center',
-    fontSize: 16,
-    color: 'black',
-    justifyContent: 'center',
-    alignItems: 'center',
-    textDecorationLine: 'underline',
-  },
-  afterLoginBtn: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginVertical: '6%',
-  },
-  horLine: {
-    borderWidth: 1,
-    width: '38%',
-    borderColor: '#0A8383',
-  },
-  circle: {
-    borderWidth: 2,
-    borderColor: 'gray',
-    height: 50,
-    width: 50,
-    borderRadius: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderColor: '#0A8383',
   },
 });

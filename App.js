@@ -13,6 +13,7 @@ import Login from './src/screens/Login';
 import Signup from './src/screens/Signup';
 import { WelcomeScreen} from './src/screens/WelcomeScreen';
 import { BottomTabs } from './src/navigation/BottomTabs';
+import CheckOut from './src/screens/CheckOut';
 
 const Stack = createStackNavigator();
 
@@ -38,7 +39,8 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="SplashScreen">
-        {/* SplashScreen which will come once for 5 Seconds */}
+      {/* <Stack.Navigator initialRouteName="Checkout"> */}
+        {/* SplashScreen which will come once for 2 Seconds */}
         <Stack.Screen
           name="SplashScreen"
           component={Splashscreen}
@@ -57,13 +59,19 @@ const App = () => {
           component={WelcomeScreen}
           options={{headerShown: false}}
         />
-        {/* navib=fation for bottom tabs navigation */}
+        {/* Navigation for bottom tabs navigation */}
         <Stack.Screen
           name="BottomTabs"
           component={BottomTabs}
           options={{ headerShown: false }}
         />
 
+        {/* Checkout screen navigation */}
+        <Stack.Screen
+          name="Checkout"
+          component={CheckOut}
+          options={{ headerShown: false }}
+        />
         
       </Stack.Navigator>
     </NavigationContainer>

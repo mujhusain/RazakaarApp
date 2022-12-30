@@ -1,4 +1,5 @@
 import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+import COLORS from '../../constants';
 
 export default function Seperator({navigation}) {
   return (
@@ -29,16 +30,16 @@ const styles = StyleSheet.create({
   horLine: {
     borderWidth: 0.9,
     width: '38%',
-    borderColor: '#0A8383',
+    borderColor: COLORS.darkGreen,
   },
   circle: {
     borderWidth: 1.5,
-    borderColor: 'gray',
+    borderColor: COLORS.gray,
     height:40,
     width: 40,
     borderRadius: 40,
     justifyContent: 'center',
     alignItems: 'center',
-    borderColor: '#0A8383',
+    borderColor: COLORS.darkGreen,
   },
 });

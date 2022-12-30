@@ -1,4 +1,5 @@
 import { StyleSheet,View,Text,TouchableOpacity } from "react-native";
+import COLORS from "../../constants";
 export const ButtonGreen = ({ onPress, title,customStyles={} }) => (
     <TouchableOpacity onPress={onPress} style={[styles.button,customStyles]}>
       <Text style={styles.buttonText}>{title}</Text>
@@ -7,7 +8,7 @@ export const ButtonGreen = ({ onPress, title,customStyles={} }) => (
 
 const styles = StyleSheet.create({
     button: {
-        backgroundColor: "#0DCDAB",
+        backgroundColor: COLORS.green,
         justifyContent: "center",
         alignItems: "center",
         height: 50,
@@ -16,7 +17,7 @@ const styles = StyleSheet.create({
         marginVertical:"2%"
     },
     buttonText: {
-        color: "white",
+        color: COLORS.white,
         fontSize: 18,
         textAlign: "center"
     }

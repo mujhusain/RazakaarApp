@@ -1,5 +1,6 @@
 import { StyleSheet,View,Text,TouchableOpacity } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
+import COLORS from "../../constants";
 export const LoginBtn = ({ onPress, title,customStyles={} }) => (
     <TouchableOpacity onPress={onPress} style={[styles.button,customStyles]}>
       <View style={styles.icon} />
@@ -10,7 +11,7 @@ export const LoginBtn = ({ onPress, title,customStyles={} }) => (
 
 const styles = StyleSheet.create({
     button: {
-        backgroundColor: "#F8EEE9",
+        backgroundColor: COLORS.lightYellow,
         justifyContent: "center",
         alignItems: "center",
         height: 55,
@@ -30,7 +31,7 @@ shadowRadius: 7.49,
 elevation: 12,
     },
     buttonText: {
-        color: "black",
+        color: COLORS.black,
         fontSize: 20,
         fontWeight: "bold",
         textAlign: "center",

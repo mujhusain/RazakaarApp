@@ -13,7 +13,9 @@ import * as yup from 'yup';
 import {LoginBtn} from '../components/buttons/LoginBtn';
 import CustomInput from '../components/CustomInput';
 import Seperator from '../components/utills/Seperator';
-import { GoogleLoginBtn } from '../components/buttons/GoogleLoginBtn';
+import {handleLogin} from '../logic/auth/login';
+import {GoogleLoginBtn} from '../components/buttons/GoogleLoginBtn';
+import COLORS from '../constants';
 
 const loginValidationSchema = yup.object().shape({
   email: yup
@@ -40,7 +42,7 @@ export default function Login({navigation}) {
           <Formik
             validationSchema={loginValidationSchema}
             initialValues={{email: '', password: ''}}
-            onSubmit={values => console.log(values)}>
+            onSubmit={values => handleLogin(values, navigation)}>
             {({
               handleChange,
               handleBlur,
@@ -51,7 +53,7 @@ export default function Login({navigation}) {
             }) => (
               <>
                 <CustomInput
-                  iconName={'envelope'}
+                  iconName={'envelope-o'}
                   name="email"
                   placeholder="Email Address"
                   style={styles.textInput}
@@ -89,8 +91,8 @@ export default function Login({navigation}) {
                 />
                 <Seperator />
                 <GoogleLoginBtn
-                //handle google login here
-                  onPress={()=> Alert.alert('google login')}
+                  //handle google login here
+                  onPress={() => Alert.alert('google login')}
                   customStyles={{width: '100%', marginTop: '3%'}}
                 />
               </>
@@ -127,14 +129,14 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 25,
     fontWeight: 'bold',
-    color: 'black',
+    color: COLORS.black,
     marginBottom: 8,
   },
   subTitle: {
     fontSize: 16,
   },
   textInput: {
-    borderColor: 'gray',
+    borderColor: COLORS.gray,
     borderLeftWidth: 1,
     height: 40,
     fontSize: 16,
@@ -146,17 +148,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: 'red',
   },
-  inputField: {
-    marginTop: 10,
-    borderColor: 'gray',
-    borderBottomWidth: 1,
-    flexDirection: 'row',
-    borderRadius: 10,
-    paddingBottom: 3,
-  },
-  icon: {
-    margin: 8,
-  },
 
   forgetpass: {
     margin: '15%',
@@ -164,7 +155,7 @@ const styles = StyleSheet.create({
   forgetpassText: {
     textAlign: 'center',
     fontSize: 16,
-    color: 'black',
+    color: COLORS.black,
     justifyContent: 'center',
     alignItems: 'center',
     textDecorationLine: 'underline',
@@ -172,7 +163,7 @@ const styles = StyleSheet.create({
   signUpBtnContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: "6%",
+    marginTop: '6%',
   },
   signUpMessage: {
     fontSize: 16,
@@ -181,6 +172,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
     fontWeight: 'bold',
-    color: '#3C9C8F',
+    color: COLORS.darkGreen,
   },
 });

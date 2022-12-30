@@ -1,5 +1,6 @@
 import {StyleSheet, View, Text, TouchableOpacity, Image} from 'react-native';
 import googleIcon from '../../assets/images/google-symbol.png';
+import COLORS from '../../constants';
 
 export const GoogleLoginBtn = ({onPress, customStyles = {}}) => (
   <TouchableOpacity onPress={onPress} style={[styles.button, customStyles]}>
@@ -15,7 +16,7 @@ export const GoogleLoginBtn = ({onPress, customStyles = {}}) => (
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: 'white',
+    backgroundColor: COLORS.white,
     justifyContent: 'center',
     alignItems: 'center',
     height: 55,
@@ -35,10 +36,10 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   buttonText: {
-    color: 'black',
+    color: COLORS.black,
     fontSize: 18,
   },
   icon: {
-    marginLeft:'10%'
+    marginLeft: '10%',
   },
 });

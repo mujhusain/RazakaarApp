@@ -22,7 +22,7 @@ export const WelcomeScreen=({navigation})=> {
           title="Login"
         />
         <SimpleButton
-          onPress={() => navigation.navigate('BottomTabs')}
+          onPress={() => navigation.navigate('Auth', { screen: 'SignupScreen' })}
           customStyles={{minWidth: '85%'}}
           title="No Account yet? Sign up"
         />
