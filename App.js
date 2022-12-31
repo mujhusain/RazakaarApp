@@ -4,7 +4,7 @@ import React from 'react';
 
 import 'react-native-gesture-handler';
 // Import Navigators from React Navigation
-import {NavigationContainer} from '@react-navigation/native';
+import {NavigationContainer,DefaultTheme} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 // Import Screens
@@ -14,6 +14,7 @@ import Signup from './src/screens/Signup';
 import { WelcomeScreen} from './src/screens/WelcomeScreen';
 import { BottomTabs } from './src/navigation/BottomTabs';
 import CheckOut from './src/screens/CheckOut';
+import EventDetails from './src/screens/EventDetails';
 
 const Stack = createStackNavigator();
 
@@ -36,10 +37,16 @@ const Auth = () => {
 };
 
 const App = () => {
+  const MyTheme = {
+    ...DefaultTheme,
+    colors: {
+      primary: 'white',
+    },
+  };
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={MyTheme} >
       <Stack.Navigator initialRouteName="SplashScreen">
-      {/* <Stack.Navigator initialRouteName="Checkout"> */}
+      {/* <Stack.Navigator initialRouteName="EventDetails"> */}
         {/* SplashScreen which will come once for 2 Seconds */}
         <Stack.Screen
           name="SplashScreen"
@@ -70,6 +77,13 @@ const App = () => {
         <Stack.Screen
           name="Checkout"
           component={CheckOut}
+          options={{ headerShown: false }}
+        />
+
+        {/* Event Details screen navigation */}
+        <Stack.Screen
+          name="EventDetails"
+          component={EventDetails}
           options={{ headerShown: false }}
         />
         

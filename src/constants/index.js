@@ -8,6 +8,7 @@ const COLORS = {
   cyan: '#00FFFF',
   white: '#FFFFFF',
   gray: 'gray',
+  lightGray:'#DCDDDC',
   black: 'black',
 };
 
