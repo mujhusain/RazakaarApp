@@ -37,15 +37,9 @@ const Auth = () => {
 };
 
 const App = () => {
-  const MyTheme = {
-    ...DefaultTheme,
-    colors: {
-      primary: 'white',
-    },
-  };
   return (
-    <NavigationContainer theme={MyTheme} >
-      <Stack.Navigator initialRouteName="SplashScreen">
+    <NavigationContainer  >
+      <Stack.Navigator initialRouteName="BottomTabs">
       {/* <Stack.Navigator initialRouteName="Checkout"> */}
         {/* SplashScreen which will come once for 2 Seconds */}
         <Stack.Screen
