@@ -20,10 +20,11 @@ export const DropdownComponent = () => {
 
   return (
     <View style={styles.container}>
-      <Text>Find event in</Text>
+      <Text style={{color:'gray'}} >Find event in</Text>
       <Dropdown
         style={[styles.dropdown, isFocus && {borderColor: 'blue'}]}
         placeholderStyle={styles.placeholderStyle}
+        dropdownStyle={styles.dropdownStyle}
         selectedTextStyle={styles.selectedTextStyle}
         inputSearchStyle={styles.inputSearchStyle}
         iconStyle={styles.iconStyle}
@@ -75,9 +76,12 @@ const styles = StyleSheet.create({
     zIndex: 999,
     paddingHorizontal: 8,
     fontSize: 14,
+    color: 'black',
+    borderWidth:1
   },
   placeholderStyle: {
     fontSize: 16,
+    color:"gray"
   },
   selectedTextStyle: {
     fontSize: 16,
@@ -91,5 +95,12 @@ const styles = StyleSheet.create({
   inputSearchStyle: {
     height: 40,
     fontSize: 16,
+    color:'black'
   },
+  dropdownStyle:{
+    color:'black',
+    borderRadius:5,
+    borderWidth:1,
+  }
+  
 });
