@@ -12,32 +12,10 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import COLORS from '../constants';
 import peoples from '../assets/images/peoples.png';
 
-export default function PeopleCard({item}) {
-  const [favorite, setFavorite] = useState(false);
-
-  const handleFavoriteBtn = () => setFavorite(prev => !prev);
-  const onShare = async () => {
-    try {
-      const result = await Share.share({
-        message:
-          'React Native | A framework for building native apps using React',
-      });
-      if (result.action === Share.sharedAction) {
-        if (result.activityType) {
-          // shared with activity type of result.activityType
-        } else {
-          // shared
-        }
-      } else if (result.action === Share.dismissedAction) {
-        // dismissed
-      }
-    } catch (error) {
-      Alert.alert(error.message);
-    }
-  };
+export default function PeopleCard({item,navigation}) {
   return (
     <TouchableOpacity
-      onPress={() => Alert.alert('pressed')}
+      onPress={() => navigation.navigate('FriendsScreen')}
       style={styles.mainContainer}>
       <View style={{flexDirection: 'row'}}>
         <Image source={peoples} style={styles.img} resizeMode="cover" />

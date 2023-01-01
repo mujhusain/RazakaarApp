@@ -18,6 +18,8 @@ import EventDetails from './src/screens/EventDetails';
 import SelectLocation from './src/screens/SelectLocation';
 import QrAttendance from './src/screens/QrAttendance';
 import SelectLocationPart2 from './src/screens/SelectLocationPart2';
+import FriendsScreen from './src/screens/FriendScreen';
+import OrgnizationScreen from './src/screens/OrgnizationScreen';
 
 const Stack = createStackNavigator();
 
@@ -101,6 +103,20 @@ const App = () => {
         <Stack.Screen
           name="QrAttendance"
           component={QrAttendance}
+          options={{ headerShown: false }}
+        />
+
+        {/* FriendsScreen (not friend yet) navigation */}
+        <Stack.Screen
+          name="FriendsScreen"
+          component={FriendsScreen}
+          options={{ headerShown: false }}
+        />
+
+        {/* OrgnizationScreen (not friend yet) navigation */}
+        <Stack.Screen
+          name="OrgnizationScreen"
+          component={OrgnizationScreen}
           options={{ headerShown: false }}
         />
         

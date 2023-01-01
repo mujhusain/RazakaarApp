@@ -12,12 +12,12 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import COLORS from '../constants';
 import logo from '../assets/images/logo.png';
 
-export default function OrgnizationCard({item}) {
+export default function OrgnizationCard({item,navigation}) {
 
 
   return (
     <TouchableOpacity
-    onPress={()=>Alert.alert("pressed")}
+    onPress={()=>navigation.navigate("OrgnizationScreen")}
       style={styles.mainContainer}>
       <View style={{flexDirection: 'row'}}>
           <Image

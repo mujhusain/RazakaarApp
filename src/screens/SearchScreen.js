@@ -53,14 +53,14 @@ export default function SearchScreen({navigation}) {
           <Text style={styles.title}>Orgnizations</Text>
           <FlatList
             data={orgList}
-            renderItem={item => <OrgnizationCard item={item.item} />}
+            renderItem={item => <OrgnizationCard item={item.item} navigation={navigation} />}
           />
         </View>
         <View style={styles.peoplesList}>
           <Text style={styles.title}>Peoples</Text>
           <FlatList
             data={peopleList}
-            renderItem={item => <PeopleCard item={item.item} />}
+            renderItem={item => <PeopleCard item={item.item} navigation={navigation} />}
           />
         </View>
       </View>
