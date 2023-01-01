@@ -9,10 +9,9 @@ import {
   Text,
   Image,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 import EventCard from '../components/EventCard';
 import OrgnizationCard from '../components/OrgnizationCard';
-import PeopleCard from '../components/PeopleCard';
 import COLORS from '../constants';
 import {ButtonGreen} from '../components/buttons/ButtonGreen';
 import floodImg from '../assets/images/flood.jpg';
@@ -37,7 +36,7 @@ export default function OrgnizationScreen({navigation}) {
                 marginLeft: 12,
                 width: '55%',
               }}>
-              <Text style={styles.title}>Blood Drive </Text>
+              <Text style={styles.title}>Eidhi Foundation </Text>
               <Text style={{color: 'black', lineHeight: 19}}>
                 In publishing commonly may be used as a placeholder before final
                 copy is available.
@@ -48,10 +47,10 @@ export default function OrgnizationScreen({navigation}) {
             <ButtonGreen
               title={'Follow this Orgnization'}
               onPress={() => Alert.alert('Follow this Orgnization')}
-              customStyles={{backgroundColor: '#0B8283', paddingHorizontal: 20}}
+              customStyles={{backgroundColor: '#0B8283', paddingHorizontal: 45}}
             />
 
-            <Icon name="handshake-o" size={60} color="#0B8283" />
+            <Icon name="hand-holding-usd" size={50} color="#205261" />
           </View>
         </View>
         <View style={styles.eventsList}>

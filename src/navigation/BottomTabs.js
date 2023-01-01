@@ -3,7 +3,7 @@ import Home from '../screens/Home';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import SearchScreen from '../screens/SearchScreen';
 import UserProfile from '../screens/UserProfile';
-import Bookmarked from '../screens/Bookmarked';
+import CreateEvent from '../screens/CreateEvent';
 import Favorites from '../screens/Favorites';
 
 const Tab = createBottomTabNavigator();
@@ -31,10 +31,10 @@ export function BottomTabs() {
               iconName = focused
                 ? 'search'
                 : 'search';
-            } else if (route.name === 'Bookmarked') {
+            } else if (route.name === 'CreateEvent') {
               iconName = focused
-                ? 'bookmark'
-                : 'bookmark-o';
+                ? 'book'
+                : 'book';
             } else if (route.name === 'Favorites') {
               iconName = focused
                 ? 'heart'
@@ -52,7 +52,7 @@ export function BottomTabs() {
     >
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="SearchScreen" component={SearchScreen} />
-      <Tab.Screen name="Bookmarked" component={Bookmarked} />
+      <Tab.Screen name="CreateEvent" component={CreateEvent} />
       <Tab.Screen name="Favorites" component={Favorites} />
       <Tab.Screen name="User_Profile" component={UserProfile} />
     </Tab.Navigator>
