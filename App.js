@@ -17,6 +17,7 @@ import CheckOut from './src/screens/CheckOut';
 import EventDetails from './src/screens/EventDetails';
 import SelectLocation from './src/screens/SelectLocation';
 import QrAttendance from './src/screens/QrAttendance';
+import SelectLocationPart2 from './src/screens/SelectLocationPart2';
 
 const Stack = createStackNavigator();
 
@@ -41,7 +42,7 @@ const Auth = () => {
 const App = () => {
   return (
     <NavigationContainer  >
-      <Stack.Navigator initialRouteName="QrAttendance">
+      <Stack.Navigator initialRouteName="SelectLocation">
         {/* SplashScreen which will come once for 2 Seconds */}
         <Stack.Screen
           name="SplashScreen"
@@ -86,6 +87,13 @@ const App = () => {
         <Stack.Screen
           name="SelectLocation"
           component={SelectLocation}
+          options={{ headerShown: false }}
+        />
+
+        {/* Select LocationPart2 screen navigation */}
+        <Stack.Screen
+          name="SelectLocationPart2"
+          component={SelectLocationPart2}
           options={{ headerShown: false }}
         />
 

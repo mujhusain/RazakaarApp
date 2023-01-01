@@ -7,18 +7,18 @@ export default function SelectLocation({navigation}) {
     <View style={styles.container}>
       <View style={styles.header} />
       <View style={styles.middile}>
-        <Image source={map} resizeMode="contain" style={{height: '50%'}} />
+        <Image source={map} resizeMode="contain" style={{height: '40%'}} />
         <Text style={{fontSize: 20, color: 'black', fontWeight: 'bold'}}>
           Select Location
         </Text>
-        <Text style={{fontSize: 16, color: 'gray', textAlign: 'center'}}>
+        <Text style={{fontSize: 16, color: 'gray', textAlign: 'center',marginTop:'4%'}}>
           Lets find where you are. So, we could rank events for you.
         </Text>
       </View>
       <View style={styles.bottom}>
         <ButtonGreen
           title={'Choose Location'}
-          onPress={()=>console.log('Choose Location')}
+          onPress={()=>navigation.navigate('SelectLocationPart2')}
           customStyles={{padding: 5}}
         />
       </View>
