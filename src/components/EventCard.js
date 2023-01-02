@@ -37,7 +37,7 @@ export default function EventCard({item}) {
   };
   return (
     <TouchableOpacity
-    onPress={()=>Alert.alert("pressed")}
+    onPress={()=>Alert.alert("pressed event "+item)}
       style={styles.mainContainer}>
       <View style={{flexDirection: 'row'}}>
           <Image
