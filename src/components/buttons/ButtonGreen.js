@@ -1,8 +1,8 @@
 import { StyleSheet,View,Text,TouchableOpacity } from "react-native";
 import COLORS from "../../constants";
-export const ButtonGreen = ({ onPress, title,customStyles={} }) => (
+export const ButtonGreen = ({ onPress, title,customStyles={},customText={} }) => (
     <TouchableOpacity onPress={onPress} style={[styles.button,customStyles]}>
-      <Text style={styles.buttonText}>{title}</Text>
+      <Text style={[styles.buttonText,customText]}>{title}</Text>
     </TouchableOpacity>
   );
 

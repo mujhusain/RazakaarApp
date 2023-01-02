@@ -14,11 +14,13 @@ import * as yup from 'yup';
 import {handleLogin} from '../logic/auth/login';
 import COLORS from '../constants';
 import {ButtonGreen} from '../components/buttons/ButtonGreen';
+import { useState } from 'react';
 
 const loginValidationSchema = yup.object().shape({
   eventName: yup.string().required('Event name is Required'),
 });
 export default function CreateEvent({navigation}) {
+    const [image,setImage] = useState('');
   return (
     <ScrollView
       contentContainerStyle={{flexGrow: 1}}
