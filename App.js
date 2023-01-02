@@ -44,7 +44,7 @@ const Auth = () => {
 const App = () => {
   return (
     <NavigationContainer  >
-      <Stack.Navigator initialRouteName="BottomTabs">
+      <Stack.Navigator initialRouteName="FriendsScreen">
         {/* SplashScreen which will come once for 2 Seconds */}
         <Stack.Screen
           name="SplashScreen"

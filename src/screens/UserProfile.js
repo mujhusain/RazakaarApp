@@ -28,7 +28,7 @@ export default function UserProfile({navigation}) {
                 width: 120,
                 height: 120,
                 borderWidth: 1,
-                borderRadius: 120,
+                borderRadius: 120,marginVertical:"5%"
               }}
             />
             <Text style={styles.title}>Salahudin Yusuf</Text>
